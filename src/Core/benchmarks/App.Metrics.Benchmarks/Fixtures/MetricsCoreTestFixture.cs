@@ -1,4 +1,4 @@
-﻿// <copyright file="MetricsCoreTestFixture.cs" company="App Metrics Contributors">
+// <copyright file="MetricsCoreTestFixture.cs" company="App Metrics Contributors">
 // Copyright (c) App Metrics Contributors. All rights reserved.
 // </copyright>
 
@@ -7,7 +7,7 @@ using System.Linq;
 
 namespace App.Metrics.Benchmarks.Fixtures
 {
-    public class MetricsCoreTestFixture : IDisposable
+    public sealed class MetricsCoreTestFixture : IDisposable
     {
 #pragma warning disable SA1401
         public readonly Action ActionToTrack = () =>
@@ -43,6 +43,9 @@ namespace App.Metrics.Benchmarks.Fixtures
 
         public string RandomUserValue => UserValues[Rnd.Next(UserValues.Length)];
 
-        public void Dispose() { }
+        public void Dispose()
+        {
+            //noop
+        }
     }
 }

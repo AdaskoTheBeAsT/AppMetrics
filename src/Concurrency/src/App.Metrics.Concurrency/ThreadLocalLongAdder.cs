@@ -1,4 +1,4 @@
-﻿// <copyright file="ThreadLocalLongAdder.cs" company="App Metrics Contributors">
+// <copyright file="ThreadLocalLongAdder.cs" company="App Metrics Contributors">
 // Copyright (c) App Metrics Contributors. All rights reserved.
 // </copyright>
 
@@ -21,7 +21,7 @@ namespace App.Metrics.Concurrency
     ///     relatively low
     ///     contention).
     /// </summary>
-    public sealed class ThreadLocalLongAdder : IValueAdder<long>
+    public sealed class ThreadLocalLongAdder : IValueAdder<long>, IDisposable
     {
         /// <summary>
         ///     We store a ValueHolder instance for each thread that requires one.
@@ -159,6 +159,11 @@ namespace App.Metrics.Concurrency
 #pragma warning restore SA1401
 
             public long GetAndReset() { return Interlocked.Exchange(ref Value, 0L); }
+        }
+
+        public void Dispose()
+        {
+            _local?.Dispose();
         }
     }
 }

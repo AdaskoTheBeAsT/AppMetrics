@@ -1,4 +1,4 @@
-﻿// <copyright file="TimerExtensions.cs" company="App Metrics Contributors">
+// <copyright file="TimerExtensions.cs" company="App Metrics Contributors">
 // Copyright (c) App Metrics Contributors. All rights reserved.
 // </copyright>
 
@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using App.Metrics.BucketHistogram;
 using App.Metrics.BucketTimer;
-using App.Metrics.Histogram;
 using App.Metrics.Meter;
 
 // ReSharper disable CheckNamespace

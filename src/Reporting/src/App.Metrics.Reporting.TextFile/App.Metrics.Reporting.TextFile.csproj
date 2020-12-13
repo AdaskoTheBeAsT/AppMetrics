@@ -1,9 +1,9 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <Description>Provides text file reporting capability to App Metrics</Description>
     <AssemblyTitle>App.Metrics.Reporting.TextFile</AssemblyTitle>
-    <TargetFrameworks>netstandard2.0</TargetFrameworks>
+    <TargetFrameworks>netstandard2.0;net5.0</TargetFrameworks>
     <PackageTags>appmetrics;reporting;influxdb</PackageTags>    
   </PropertyGroup>
 

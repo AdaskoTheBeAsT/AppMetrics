@@ -1,4 +1,4 @@
-﻿// <copyright file="DefaultMetricsTaskSchedular.cs" company="App Metrics Contributors">
+// <copyright file="DefaultMetricsTaskSchedular.cs" company="App Metrics Contributors">
 // Copyright (c) App Metrics Contributors. All rights reserved.
 // </copyright>
 
@@ -76,6 +76,7 @@ namespace App.Metrics.Internal
         public void Dispose()
         {
             _cancellationTokenSource.Cancel();
+            _cancellationTokenSource.Dispose();
 
             lock (_syncLock)
             {

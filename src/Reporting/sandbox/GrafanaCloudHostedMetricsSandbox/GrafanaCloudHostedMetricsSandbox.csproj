@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
 	<Import Project="..\..\build\common.props" />
 
@@ -8,7 +8,7 @@
   </PropertyGroup>
 
   <PropertyGroup>
-      <TargetFramework>netcoreapp3.1</TargetFramework>
+      <TargetFrameworks>netcoreapp3.1;net5.0</TargetFrameworks>
   </PropertyGroup>
   
   <ItemGroup>
@@ -17,9 +17,15 @@
 
   <ItemGroup>
     <PackageReference Include="App.Metrics" />
-    <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="2.2.0" />
-    <PackageReference Include="Serilog.Sinks.Literate" Version="3.0.1-dev-00044" />
-    <PackageReference Include="Serilog.Sinks.Seq" Version="4.0.1-dev-00155" />
+    <PackageReference Include="Serilog.Sinks.Console" Version="3.1.1" />
+    <PackageReference Include="Serilog.Sinks.Seq" Version="4.0.0" />
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(TargetFramework)' == 'netcoreapp3.1'">
+    <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="3.1.10" />
+  </ItemGroup>
+  <ItemGroup Condition="'$(TargetFramework)' == 'net5.0'">
+    <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="5.0.0" />
   </ItemGroup>
 
 	<ItemGroup>

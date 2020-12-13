@@ -1,13 +1,15 @@
-﻿// <copyright file="ThreadLocalLongAdderTests.cs" company="App Metrics Contributors">
+// <copyright file="ThreadLocalLongAdderTests.cs" company="App Metrics Contributors">
 // Copyright (c) App Metrics Contributors. All rights reserved.
 // </copyright>
 
+using System;
 using FluentAssertions;
 using Xunit;
 
 namespace App.Metrics.Concurrency.Facts
 {
-    public class ThreadLocalLongAdderTests
+    public sealed class ThreadLocalLongAdderTests
+        : IDisposable
     {
         private readonly ThreadLocalLongAdder _num = new ThreadLocalLongAdder();
 
@@ -101,5 +103,10 @@ namespace App.Metrics.Concurrency.Facts
 
         [Fact]
         public void ThreadLocalLongAdder_DefaultsToZero() { _num.GetValue().Should().Be(0L); }
+
+        public void Dispose()
+        {
+            _num?.Dispose();
+        }
     }
 }

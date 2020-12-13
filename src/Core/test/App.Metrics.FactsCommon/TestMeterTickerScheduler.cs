@@ -1,4 +1,4 @@
-﻿// <copyright file="TestMeterTickerScheduler.cs" company="App Metrics Contributors">
+// <copyright file="TestMeterTickerScheduler.cs" company="App Metrics Contributors">
 // Copyright (c) App Metrics Contributors. All rights reserved.
 // </copyright>
 
@@ -14,6 +14,7 @@ using App.Metrics.Scheduling;
 
 namespace App.Metrics.FactsCommon
 {
+#pragma warning disable CA1063 // Implement IDisposable Correctly
     public class TestMeterTickerScheduler : IMeterTickerScheduler
     {
         private static readonly ILog Logger = LogProvider.For<DefaultMeterTickerScheduler>();
@@ -121,4 +122,5 @@ namespace App.Metrics.FactsCommon
             return AppMetricsTaskHelper.CompletedTask();
         }
     }
+#pragma warning restore CA1063 // Implement IDisposable Correctly
 }

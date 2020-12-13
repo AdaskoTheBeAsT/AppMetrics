@@ -1,4 +1,4 @@
-﻿// <copyright file="Program.cs" company="App Metrics Contributors">
+// <copyright file="Program.cs" company="App Metrics Contributors">
 // Copyright (c) App Metrics Contributors. All rights reserved.
 // </copyright>
 
@@ -43,7 +43,7 @@ namespace ReportingSandbox
             Log.Logger = new LoggerConfiguration()
                 .MinimumLevel.Debug()
                 .MinimumLevel.Override("Microsoft", LogEventLevel.Information)
-                .WriteTo.LiterateConsole()
+                .WriteTo.Console()
                 .WriteTo.Seq("http://localhost:5341")
                 .CreateLogger();
 

@@ -1,8 +1,7 @@
-﻿// <copyright file="MetricCoreTestFixture.cs" company="App Metrics Contributors">
+// <copyright file="MetricCoreTestFixture.cs" company="App Metrics Contributors">
 // Copyright (c) App Metrics Contributors. All rights reserved.
 // </copyright>
 
-using System;
 using App.Metrics.FactsCommon;
 using App.Metrics.Internal;
 using App.Metrics.Internal.NoOp;
@@ -12,7 +11,7 @@ using App.Metrics.ReservoirSampling.ExponentialDecay;
 
 namespace App.Metrics.Facts.Fixtures
 {
-    public class MetricCoreTestFixture : IDisposable
+    public class MetricCoreTestFixture
     {
         public MetricCoreTestFixture()
         {
@@ -46,14 +45,9 @@ namespace App.Metrics.Facts.Fixtures
         public IProvideMetricValues Snapshot { get; }
 
         public MetricTags[] Tags => new[]
-                                    {
-                                        new MetricTags("key1", "key2"),
-                                        new MetricTags(new[] { "key1", "key2" }, new[] { "value1", "value2" })
-                                    };
-
-        /// <inheritdoc />
-        public void Dispose()
         {
-        }
+            new MetricTags("key1", "key2"),
+            new MetricTags(new[] {"key1", "key2"}, new[] {"value1", "value2"})
+        };
     }
 }

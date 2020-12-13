@@ -1,4 +1,4 @@
-﻿// <copyright file="HistogramMetricTests.cs" company="App Metrics Contributors">
+// <copyright file="HistogramMetricTests.cs" company="App Metrics Contributors">
 // Copyright (c) App Metrics Contributors. All rights reserved.
 // </copyright>
 
@@ -8,13 +8,13 @@ using System.Threading.Tasks;
 using App.Metrics.BucketHistogram;
 using App.Metrics.Facts.TestHelpers;
 using App.Metrics.Histogram;
-using App.Metrics.ReservoirSampling.ExponentialDecay;
 using FluentAssertions;
 using Xunit;
 
 namespace App.Metrics.Facts.BucketHistogram
 {
-    public class BucketHistogramMetricTests
+    public sealed class BucketHistogramMetricTests
+        : IDisposable
     {
         private readonly DefaultBucketHistogramMetric _histogram;
 
@@ -103,6 +103,11 @@ namespace App.Metrics.Facts.BucketHistogram
             var histogram = new CustomHistogram();
             var value = histogram.GetValueOrDefault();
             value.Should().NotBeNull();
+        }
+
+        public void Dispose()
+        {
+            _histogram?.Dispose();
         }
     }
 }

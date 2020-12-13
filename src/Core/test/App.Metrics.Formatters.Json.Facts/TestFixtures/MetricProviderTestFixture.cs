@@ -2,7 +2,6 @@
 // Copyright (c) App Metrics Contributors. All rights reserved.
 // </copyright>
 
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using App.Metrics.Apdex;
@@ -18,7 +17,7 @@ using App.Metrics.Timer;
 
 namespace App.Metrics.Formatters.Json.Facts.TestFixtures
 {
-    public class MetricProviderTestFixture : IDisposable
+    public class MetricProviderTestFixture
     {
         private readonly IClock _clock = new TestClock();
 
@@ -116,8 +115,6 @@ namespace App.Metrics.Formatters.Json.Facts.TestFixtures
         private MetricsContextValueSource ContextOne { get; }
 
         private MetricTags Tags => new MetricTags(new[] { "host", "env" }, new[] { "server1", "staging" });
-
-        public void Dispose() { }
 
         private IEnumerable<ApdexValueSource> SetupApdexScores()
         {

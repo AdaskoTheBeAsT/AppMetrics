@@ -1,12 +1,13 @@
-﻿// <copyright file="AtomicLongCompareBenchmark.cs" company="App Metrics Contributors">
+// <copyright file="AtomicLongCompareBenchmark.cs" company="App Metrics Contributors">
 // Copyright (c) App Metrics Contributors. All rights reserved.
 // </copyright>
 
+using System;
 using BenchmarkDotNet.Attributes;
 
 namespace App.Metrics.Concurrency.Benchmarks.BenchmarkDotNetBenchmarks.Concurrency
 {
-    public class AtomicLongCompareBenchmark : DefaultBenchmarkBase
+    public sealed class AtomicLongCompareBenchmark : DefaultBenchmarkBase, IDisposable
     {
         private AtomicLong _atomicLong;
         private PaddedAtomicLong _paddedAtomicLong;
@@ -63,6 +64,11 @@ namespace App.Metrics.Concurrency.Benchmarks.BenchmarkDotNetBenchmarks.Concurren
             _threadLocalLongAdder.NonVolatileGetValue();
             _threadLocalLongAdder.Increment();
             _threadLocalLongAdder.Decrement();
+        }
+
+        public void Dispose()
+        {
+            _threadLocalLongAdder?.Dispose();
         }
     }
 }

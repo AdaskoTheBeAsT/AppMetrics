@@ -10,6 +10,7 @@ using App.Metrics.Extensions.Collectors.MetricsRegistries;
 using Microsoft.Extensions.Hosting;
 namespace App.Metrics.Extensions.Collectors.HostedServices
 {
+#pragma warning disable CA1063 // Implement IDisposable Correctly
     public class SystemUsageCollectorHostedService : IHostedService, IDisposable
     {
         private readonly Process _process = Process.GetCurrentProcess();
@@ -31,6 +32,7 @@ namespace App.Metrics.Extensions.Collectors.HostedServices
         public void Dispose()
         {
             _timer?.Dispose();
+            _process?.Dispose();
         }
 
         public Task StartAsync(CancellationToken cancellationToken)
@@ -71,4 +73,5 @@ namespace App.Metrics.Extensions.Collectors.HostedServices
             return Task.CompletedTask;
         }
     }
+#pragma warning restore CA1063 // Implement IDisposable Correctly
 }

@@ -2,6 +2,7 @@
 // Copyright (c) App Metrics Contributors. All rights reserved.
 // </copyright>
 
+using System;
 using System.IO;
 using System.Threading.Tasks;
 using App.Metrics.Counter;
@@ -12,7 +13,8 @@ using Xunit;
 
 namespace App.Metrics.Formatters.Ascii.Facts
 {
-    public class MetricsSnapshotSerializationTests
+    public sealed class MetricsSnapshotSerializationTests
+        : IDisposable
     {
         private readonly MetricsFixture _fixture;
 
@@ -64,6 +66,11 @@ namespace App.Metrics.Formatters.Ascii.Facts
                 sw.ToString().Should().Be(
                     "# TIMESTAMP: 0\n# MEASUREMENT: test---counter1\n# TAGS:\n                  mtype = counter\n                   unit = none\n# FIELDS:\n                  value = 1\n--------------------------------------------------------------\n");
             }
+        }
+
+        public void Dispose()
+        {
+            _fixture?.Dispose();
         }
     }
 }

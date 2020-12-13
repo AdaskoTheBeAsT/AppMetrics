@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <Description>App Metrics Core abstractions and interfaces for metric types, reporting, filtering and more.</Description>
-    <TargetFrameworks>netstandard2.0</TargetFrameworks>
+    <TargetFrameworks>netstandard2.0;net5.0</TargetFrameworks>
     <TargetFrameworks Condition=" '$(OS)' == 'Windows_NT' ">$(TargetFrameworks);net461</TargetFrameworks>
     <RootNamespace>App.Metrics</RootNamespace>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
@@ -10,8 +10,12 @@
     <LangVersion>latest</LangVersion>
   </PropertyGroup>
 
-  <ItemGroup>
+  <ItemGroup Condition=" '$(TargetFramework)' == 'netstandard2.0' or '$(TargetFramework)' == 'net461' ">
     <PackageReference Include="Microsoft.Bcl.AsyncInterfaces" Version="1.0.0" />
+  </ItemGroup>
+	
+  <ItemGroup Condition=" '$(TargetFramework)' == 'net5.0' ">
+	<PackageReference Include="Microsoft.Bcl.AsyncInterfaces" Version="5.0.0" />
   </ItemGroup>
 
   <ItemGroup>

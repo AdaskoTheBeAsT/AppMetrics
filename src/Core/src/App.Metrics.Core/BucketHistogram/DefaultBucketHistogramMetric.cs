@@ -1,4 +1,4 @@
-﻿// <copyright file="DefaultHistogramMetric.cs" company="App Metrics Contributors">
+// <copyright file="DefaultHistogramMetric.cs" company="App Metrics Contributors">
 // Copyright (c) App Metrics Contributors. All rights reserved.
 // </copyright>
 
@@ -99,7 +99,7 @@ namespace App.Metrics.BucketHistogram
             }
 
 
-            bucketCounter.Increment();
+            bucketCounter?.Increment();
             _sum.Add(value);
             _counter.Increment();
         }

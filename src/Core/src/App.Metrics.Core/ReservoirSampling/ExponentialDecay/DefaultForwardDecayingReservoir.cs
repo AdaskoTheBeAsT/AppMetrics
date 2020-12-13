@@ -1,4 +1,4 @@
-﻿// <copyright file="DefaultForwardDecayingReservoir.cs" company="App Metrics Contributors">
+// <copyright file="DefaultForwardDecayingReservoir.cs" company="App Metrics Contributors">
 // Copyright (c) App Metrics Contributors. All rights reserved.
 // </copyright>
 
@@ -42,7 +42,7 @@ namespace App.Metrics.ReservoirSampling.ExponentialDecay
         private SortedList<double, WeightedSample> _values;
         private AtomicLong _count = new AtomicLong(0);
         private bool _disposed;
-        private SpinLock _lock = default;
+        private SpinLock _lock;
         private AtomicLong _startTime;
         private AtomicDouble _sum = new AtomicDouble(0.0);
 

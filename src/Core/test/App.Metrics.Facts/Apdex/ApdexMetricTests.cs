@@ -1,4 +1,4 @@
-﻿// <copyright file="ApdexMetricTests.cs" company="App Metrics Contributors">
+// <copyright file="ApdexMetricTests.cs" company="App Metrics Contributors">
 // Copyright (c) App Metrics Contributors. All rights reserved.
 // </copyright>
 
@@ -12,7 +12,8 @@ using Xunit;
 
 namespace App.Metrics.Facts.Apdex
 {
-    public class ApdexMetricTests
+    public sealed class ApdexMetricTests
+        : IDisposable
     {
         private readonly DefaultApdexMetric _apdex;
         private readonly IClock _clock = new TestClock();
@@ -191,6 +192,11 @@ namespace App.Metrics.Facts.Apdex
             };
 
             createApdex.Should().Throw<ArgumentNullException>();
+        }
+
+        public void Dispose()
+        {
+            _apdex?.Dispose();
         }
     }
 }

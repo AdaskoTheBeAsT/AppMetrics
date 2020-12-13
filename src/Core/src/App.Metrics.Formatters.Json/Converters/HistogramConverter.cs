@@ -1,4 +1,4 @@
-﻿// <copyright file="HistogramConverter.cs" company="App Metrics Contributors">
+// <copyright file="HistogramConverter.cs" company="App Metrics Contributors">
 // Copyright (c) App Metrics Contributors. All rights reserved.
 // </copyright>
 
@@ -22,7 +22,7 @@ namespace App.Metrics.Formatters.Json.Converters
 
         public override void Write(Utf8JsonWriter writer, HistogramValueSource value, JsonSerializerOptions options)
         {
-            var source = (HistogramValueSource)value;
+            var source = value;
 
             var target = source.ToSerializableMetric();
 

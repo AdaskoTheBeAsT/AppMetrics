@@ -1,9 +1,9 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <Description>App Metrics Grafana Cloud Hosted Metrics Metapackage</Description>
     <AssemblyTitle>App.Metrics.GrafanaCloudHostedMetrics</AssemblyTitle>
-    <TargetFrameworks>netstandard2.0;netstandard2.1</TargetFrameworks>
+    <TargetFrameworks>netstandard2.0;netstandard2.1;net5.0</TargetFrameworks>
     <PackageTags>appmetrics;grafana cloud;hosted metrics;metrics 2.0</PackageTags>
   </PropertyGroup>
 

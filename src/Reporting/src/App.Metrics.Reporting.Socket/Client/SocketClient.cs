@@ -1,7 +1,8 @@
-﻿// <copyright file="SocketClient.cs" company="App Metrics Contributors">
+// <copyright file="SocketClient.cs" company="App Metrics Contributors">
 // Copyright (c) App Metrics Contributors. All rights reserved.
 // </copyright>
 
+using System;
 using System.Net;
 using System.Net.Sockets;
 using System.Text;
@@ -10,7 +11,9 @@ using System.Threading.Tasks;
 
 namespace App.Metrics.Reporting.Socket.Client
 {
+#pragma warning disable CA1063 // Implement IDisposable Correctly
     public class SocketClient
+        : IDisposable
     {
         private readonly SocketSettings _socketSettings;
 
@@ -130,5 +133,13 @@ namespace App.Metrics.Reporting.Socket.Client
 
             return new SocketWriteResult(false, "There is no socket instance!");
         }
+
+        public void Dispose()
+        {
+            _udpClient?.Dispose();
+            _unixClient?.Dispose();
+            _tcpClient?.Dispose();
+        }
     }
+#pragma warning restore CA1063 // Implement IDisposable Correctly
 }

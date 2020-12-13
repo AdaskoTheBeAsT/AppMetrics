@@ -1,4 +1,4 @@
-﻿// <copyright file="EnvInfoJsonOutputFormatter.cs" company="App Metrics Contributors">
+// <copyright file="EnvInfoJsonOutputFormatter.cs" company="App Metrics Contributors">
 // Copyright (c) App Metrics Contributors. All rights reserved.
 // </copyright>
 
@@ -8,7 +8,6 @@ using System.Text.Json;
 using System.Threading;
 using System.Threading.Tasks;
 using App.Metrics.Infrastructure;
-using App.Metrics.Internal;
 
 namespace App.Metrics.Formatters.Json
 {

@@ -11,7 +11,9 @@ using BenchmarkDotNet.Attributes;
 
 namespace App.Metrics.Benchmarks.BenchmarkDotNetBenchmarks.Sampling
 {
+#pragma warning disable CA1001 // Types that own disposable fields should be disposable
     public class AlgorithmRReservoirSamplingBenchmark : DefaultBenchmarkBase
+#pragma warning restore CA1001 // Types that own disposable fields should be disposable
     {
         private static readonly TimeSpan TickInterval = TimeSpan.FromMilliseconds(10);
         private readonly object _syncLock = new object();

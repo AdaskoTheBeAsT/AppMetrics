@@ -1,13 +1,13 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
     <PropertyGroup>
         <Description>App Metrics is an open-source .NET Standard library used to record application metrics.</Description>
-        <TargetFrameworks>netstandard2.0;netcoreapp3.1</TargetFrameworks>
+        <TargetFrameworks>netstandard2.0;netcoreapp3.1;net5.0</TargetFrameworks>
         <RootNamespace>App.Metrics.AppNetCore</RootNamespace>
         <GenerateDocumentationFile>true</GenerateDocumentationFile>
         <PackageTags>appmetrics;metrics</PackageTags>
     </PropertyGroup>
 
-    <ItemGroup Condition="'$(TargetFramework)' == 'netcoreapp3.1'">
+    <ItemGroup Condition="'$(TargetFramework)' == 'netcoreapp3.1' or '$(TargetFramework)' == 'net5.0'">
         <FrameworkReference Include="Microsoft.AspNetCore.App" />
     </ItemGroup>
     <ItemGroup  Condition="'$(TargetFramework)' == 'netstandard2.0'">

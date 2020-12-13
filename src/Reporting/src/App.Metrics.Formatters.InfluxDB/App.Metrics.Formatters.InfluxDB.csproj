@@ -1,8 +1,8 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <Description>App Metrics Formatting, formatting metrics data to InfluxDB formats e.g. Line Protocol</Description>
-    <TargetFrameworks>netstandard2.0;netstandard2.1</TargetFrameworks>
+    <TargetFrameworks>netstandard2.0;netstandard2.1;net5.0</TargetFrameworks>
     <PackageTags>appmetrics;influxdb</PackageTags>    
   </PropertyGroup>
 

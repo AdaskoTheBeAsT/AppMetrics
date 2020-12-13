@@ -1,4 +1,4 @@
-﻿// <copyright file="GaugeMetricTests.cs" company="App Metrics Contributors">
+// <copyright file="GaugeMetricTests.cs" company="App Metrics Contributors">
 // Copyright (c) App Metrics Contributors. All rights reserved.
 // </copyright>
 
@@ -15,7 +15,8 @@ using Xunit;
 
 namespace App.Metrics.Facts.Gauge
 {
-    public class GaugeMetricTests
+    public sealed class GaugeMetricTests
+        : IDisposable
     {
         private readonly IClock _clock;
         private readonly IMeterTickerScheduler _schedular;
@@ -124,6 +125,11 @@ namespace App.Metrics.Facts.Gauge
             var hitPercentage = new PercentageGauge(() => 1, () => 0);
 
             hitPercentage.Value.Should().Be(double.NaN);
+        }
+
+        public void Dispose()
+        {
+            _schedular?.Dispose();
         }
     }
 }

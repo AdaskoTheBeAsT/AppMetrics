@@ -1,4 +1,4 @@
-﻿// <copyright file="GraphiteOptions.cs" company="App Metrics Contributors">
+// <copyright file="GraphiteOptions.cs" company="App Metrics Contributors">
 // Copyright (c) App Metrics Contributors. All rights reserved.
 // </copyright>
 
@@ -44,7 +44,9 @@ namespace App.Metrics.Reporting.Graphite
                     case "net.pickled":
                         return Protocol.Pickled;
                     default:
+#pragma warning disable CA1065 // Do not raise exceptions in unexpected locations
                         throw new ArgumentException("Graphite URI scheme must be either net.tcp or net.udp or net.pickled", nameof(BaseUri));
+#pragma warning restore CA1065 // Do not raise exceptions in unexpected locations
                 }
             }
         }

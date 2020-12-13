@@ -11,6 +11,7 @@ using Microsoft.Extensions.Hosting;
 
 namespace App.Metrics.Extensions.Collectors.HostedServices
 {
+#pragma warning disable CA1063 // Implement IDisposable Correctly
     public class GcEventsCollectorHostedService : IHostedService, IDisposable
     {
         private readonly IMetrics _metrics;
@@ -51,4 +52,5 @@ namespace App.Metrics.Extensions.Collectors.HostedServices
             _gcEventListener?.Dispose();
         }
     }
+#pragma warning restore CA1063 // Implement IDisposable Correctly
 }

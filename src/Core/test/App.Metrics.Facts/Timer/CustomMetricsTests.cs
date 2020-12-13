@@ -1,4 +1,4 @@
-﻿// <copyright file="CustomMetricsTests.cs" company="App Metrics Contributors">
+// <copyright file="CustomMetricsTests.cs" company="App Metrics Contributors">
 // Copyright (c) App Metrics Contributors. All rights reserved.
 // </copyright>
 
@@ -12,6 +12,7 @@ using Xunit;
 
 namespace App.Metrics.Facts.Timer
 {
+#pragma warning disable CA1063 // Implement IDisposable Correctly
     public class CustomMetricsTests : IDisposable
     {
         private readonly MetricsFixture _fixture;
@@ -60,4 +61,5 @@ namespace App.Metrics.Facts.Timer
 
         public void Dispose() { _fixture?.Dispose(); }
     }
+#pragma warning restore CA1063 // Implement IDisposable Correctly
 }

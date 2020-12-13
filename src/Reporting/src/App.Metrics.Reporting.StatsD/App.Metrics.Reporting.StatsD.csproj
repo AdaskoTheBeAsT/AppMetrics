@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <Description>Provides reporting capability to App Metrics via StatsD</Description>
-    <TargetFrameworks>netstandard2.0</TargetFrameworks>
+    <TargetFrameworks>netstandard2.0;net5.0</TargetFrameworks>
     <PackageTags>appmetrics;reporting;socket;tcp;udp;uds;statsd</PackageTags>
   </PropertyGroup>
 

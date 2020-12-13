@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <Description>App Metrics Formatters for metrics  and environment data to JSON using Newtonsoft.Json.</Description>
-    <TargetFrameworks>netstandard2.0</TargetFrameworks>
+    <TargetFrameworks>netstandard2.0;net5.0</TargetFrameworks>
     <TargetFrameworks Condition=" '$(OS)' == 'Windows_NT' ">$(TargetFrameworks);net461</TargetFrameworks>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <PackageTags>appmetrics;metrics;json</PackageTags>
@@ -12,8 +12,12 @@
     <ProjectReference Include="..\App.Metrics.Abstractions\App.Metrics.Abstractions.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <PackageReference Include="System.Text.Json" Version="4.7.2" />
+  <ItemGroup Condition=" '$(TargetFramework)' == 'netstandard2.0' or '$(TargetFramework)' == 'net461' ">
+	<PackageReference Include="System.Text.Json" Version="4.7.2" />
+  </ItemGroup>
+	
+  <ItemGroup Condition=" '$(TargetFramework)' == 'net5.0' ">
+	<PackageReference Include="System.Text.Json" Version="5.0.0" />
   </ItemGroup>
 
 </Project>

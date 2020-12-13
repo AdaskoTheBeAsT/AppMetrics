@@ -1,4 +1,4 @@
-﻿// <copyright file="DefaultTimerBuilder.cs" company="App Metrics Contributors">
+// <copyright file="DefaultTimerBuilder.cs" company="App Metrics Contributors">
 // Copyright (c) App Metrics Contributors. All rights reserved.
 // </copyright>
 
@@ -10,10 +10,6 @@ namespace App.Metrics.BucketTimer
 {
     public class DefaultBucketTimerBuilder : IBuildBucketTimerMetrics
     {
-        public DefaultBucketTimerBuilder()
-        {
-        }
-
         /// <inheritdoc />
         public IBucketTimerMetric Build(IBucketHistogramMetric histogram, IClock clock, TimeUnit timeUnit)
         {

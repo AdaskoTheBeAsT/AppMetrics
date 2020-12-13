@@ -2,6 +2,7 @@
 // Copyright (c) App Metrics Contributors. All rights reserved.
 // </copyright>
 
+using System;
 using App.Metrics.Facts.TestHelpers;
 using App.Metrics.FactsCommon;
 using App.Metrics.Meter;
@@ -10,7 +11,8 @@ using Xunit;
 
 namespace App.Metrics.Facts.Meter
 {
-    public class MeterMetricTests
+    public sealed class MeterMetricTests
+        : IDisposable
     {
         private readonly IClock _clock;
         private readonly DefaultMeterMetric _meter;
@@ -203,6 +205,11 @@ namespace App.Metrics.Facts.Meter
             var scaledValue = _meter.GetValueOrDefault().Scale(TimeUnit.Minutes);
 
             scaledValue.MeanRate.Should().Be(1);
+        }
+
+        public void Dispose()
+        {
+            _meter?.Dispose();
         }
     }
 }

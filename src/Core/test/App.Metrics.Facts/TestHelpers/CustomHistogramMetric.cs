@@ -7,6 +7,7 @@ using App.Metrics.Histogram;
 
 namespace App.Metrics.Facts.TestHelpers
 {
+#pragma warning disable CA1063 // Implement IDisposable Correctly
     public class CustomHistogramMetric : IHistogramMetric
     {
         private bool _disposed;
@@ -43,4 +44,5 @@ namespace App.Metrics.Facts.TestHelpers
 
         public void Update(long value) { Reservoir.Update(value); }
     }
+#pragma warning restore CA1063 // Implement IDisposable Correctly
 }

@@ -12,6 +12,7 @@ using App.Metrics.ReservoirSampling.ExponentialDecay;
 
 namespace App.Metrics.Facts.Fixtures
 {
+#pragma warning disable CA1063 // Implement IDisposable Correctly
     public class ApdexScoreTestFixture : IDisposable
     {
         public void Dispose() { }
@@ -72,4 +73,5 @@ namespace App.Metrics.Facts.Fixtures
             }
         }
     }
+#pragma warning restore CA1063 // Implement IDisposable Correctly
 }

@@ -1,4 +1,4 @@
-﻿// <copyright file="TimerMetricTests.cs" company="App Metrics Contributors">
+// <copyright file="TimerMetricTests.cs" company="App Metrics Contributors">
 // Copyright (c) App Metrics Contributors. All rights reserved.
 // </copyright>
 
@@ -7,16 +7,15 @@ using App.Metrics.BucketHistogram;
 using App.Metrics.BucketTimer;
 using App.Metrics.Facts.TestHelpers;
 using App.Metrics.FactsCommon;
-using App.Metrics.Histogram;
 using App.Metrics.Meter;
-using App.Metrics.ReservoirSampling.ExponentialDecay;
 using App.Metrics.Timer;
 using FluentAssertions;
 using Xunit;
 
 namespace App.Metrics.Facts.BucketTimer
 {
-    public class BucketTimerMetricTests
+    public sealed class BucketTimerMetricTests
+        : IDisposable
     {
         private readonly IClock _clock = new TestClock();
         private readonly DefaultBucketTimerMetric _timer;
@@ -141,6 +140,11 @@ namespace App.Metrics.Facts.BucketTimer
             var timer = new CustomTimer();
             var value = timer.GetValueOrDefault();
             value.Should().NotBeNull();
+        }
+
+        public void Dispose()
+        {
+            _timer?.Dispose();
         }
     }
 }

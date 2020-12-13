@@ -15,6 +15,7 @@ namespace App.Metrics.Scheduling
     /// <summary>
     /// A scheduler for an <see cref="IRescalingReservoir"/> that uses a fixed time period schedule for rescaling.
     /// </summary>
+#pragma warning disable CA1063 // Implement IDisposable Correctly
     public class DefaultReservoirRescaleScheduler : IReservoirRescaleScheduler
     {
         /// <summary>
@@ -170,4 +171,5 @@ namespace App.Metrics.Scheduling
 #endif
         }
     }
+#pragma warning restore CA1063 // Implement IDisposable Correctly
 }

@@ -1,9 +1,10 @@
-﻿// <copyright file="StatsDSyntax.cs" company="App Metrics Contributors">
+// <copyright file="StatsDSyntax.cs" company="App Metrics Contributors">
 // Copyright (c) App Metrics Contributors. All rights reserved.
 // </copyright>
 
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using App.Metrics.Logging;
 
 namespace App.Metrics.Formatting.StatsD.Internal
@@ -91,7 +92,7 @@ namespace App.Metrics.Formatting.StatsD.Internal
 
         // Limit the floating point precision to 15
         private static string FormatFloat(object f)
-            => Convert.ToDouble(f).ToString("0.###############");
+            => Convert.ToDouble(f).ToString("0.###############", CultureInfo.InvariantCulture);
 
         private static string FormatInt(object f)
             => Convert.ToInt64(f).ToString();

@@ -14,7 +14,8 @@ using Xunit;
 
 namespace App.Metrics.Facts.Timer
 {
-    public class TimerMetricTests
+    public sealed class TimerMetricTests
+        : IDisposable
     {
         private readonly IClock _clock = new TestClock();
         private readonly DefaultTimerMetric _timer;
@@ -204,6 +205,11 @@ namespace App.Metrics.Facts.Timer
             }
 
             _timer.GetValueOrDefault().Histogram.LastUserValue.Should().Be("test");
+        }
+
+        public void Dispose()
+        {
+            _timer?.Dispose();
         }
     }
 }

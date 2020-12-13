@@ -1,4 +1,4 @@
-﻿// <copyright file="RecordAndReportHostedService.cs" company="App Metrics Contributors">
+// <copyright file="RecordAndReportHostedService.cs" company="App Metrics Contributors">
 // Copyright (c) App Metrics Contributors. All rights reserved.
 // </copyright>
 
@@ -12,11 +12,12 @@ using static System.Console;
 
 namespace MetricsSandbox
 {
+#pragma warning disable CA1063 // Implement IDisposable Correctly
     public class RecordAndReportHostedService : IHostedService, IDisposable
     {
         private static readonly Random Rnd = new Random();
         private Timer _timer;
-        private IMetricsRoot _metrics;
+        private readonly IMetricsRoot _metrics;
 
         public RecordAndReportHostedService(IMetricsRoot metrics) { _metrics = metrics; }
 
@@ -80,4 +81,5 @@ namespace MetricsSandbox
             Task.WaitAll(_metrics.ReportRunner.RunAllAsync().ToArray());
         }
     }
+#pragma warning restore CA1063 // Implement IDisposable Correctly
 }

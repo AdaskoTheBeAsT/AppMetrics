@@ -1,10 +1,10 @@
-﻿// <copyright file="EnvironmentInfoProviderCache.cs" company="App Metrics Contributors">
+// <copyright file="EnvironmentInfoProviderCache.cs" company="App Metrics Contributors">
 // Copyright (c) App Metrics Contributors. All rights reserved.
 // </copyright>
 
 using System;
 using System.Reflection;
-#if !NET452
+#if NETSTANDARD2_0 || NET5_0
 using System.Runtime.InteropServices;
 #endif
 
@@ -66,7 +66,7 @@ namespace App.Metrics.Infrastructure
 
         public string RunningEnvironment { get; }
 
-        #if NETSTANDARD2_0
+        #if NETSTANDARD2_0 || NET5_0
         // ReSharper disable InconsistentNaming
         private static string GetOSPlatform()
             // ReSharper restore InconsistentNaming

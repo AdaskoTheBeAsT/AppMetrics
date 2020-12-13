@@ -45,7 +45,7 @@ namespace MetricsStatsDSandboxMvc
         private static void ConfigureLogging()
         {
             Log.Logger = new LoggerConfiguration().MinimumLevel.Verbose().MinimumLevel.Override("Microsoft", LogEventLevel.Verbose).WriteTo.
-                                                   LiterateConsole().WriteTo.Seq("http://localhost:5341").CreateLogger();
+                                                   Console().WriteTo.Seq("http://localhost:5341").CreateLogger();
         }
     }
 }

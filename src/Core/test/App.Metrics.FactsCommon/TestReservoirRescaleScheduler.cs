@@ -1,4 +1,4 @@
-﻿// <copyright file="TestReservoirRescaleScheduler.cs" company="App Metrics Contributors">
+// <copyright file="TestReservoirRescaleScheduler.cs" company="App Metrics Contributors">
 // Copyright (c) App Metrics Contributors. All rights reserved.
 // </copyright>
 
@@ -14,6 +14,7 @@ using App.Metrics.Scheduling;
 
 namespace App.Metrics.FactsCommon
 {
+#pragma warning disable CA1063 // Implement IDisposable Correctly
     public class TestReservoirRescaleScheduler : IReservoirRescaleScheduler
     {
         private static readonly ILog Logger = LogProvider.For<DefaultReservoirRescaleScheduler>();
@@ -126,4 +127,5 @@ namespace App.Metrics.FactsCommon
             return AppMetricsTaskHelper.CompletedTask();
         }
     }
+#pragma warning restore CA1063 // Implement IDisposable Correctly
 }

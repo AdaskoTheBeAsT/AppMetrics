@@ -1,4 +1,4 @@
-﻿// <copyright file="EnvInfoTextWriter.cs" company="App Metrics Contributors">
+// <copyright file="EnvInfoTextWriter.cs" company="App Metrics Contributors">
 // Copyright (c) App Metrics Contributors. All rights reserved.
 // </copyright>
 
@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 
 namespace App.Metrics.Formatters.Ascii
 {
+#pragma warning disable CA1063 // Implement IDisposable Correctly
     public class EnvInfoTextWriter : IEnvInfoWriter
     {
         private readonly int _padding;
@@ -50,7 +51,7 @@ namespace App.Metrics.Formatters.Ascii
             await _textWriter.WriteAsync('\n');
         }
 
-#if NETSTANDARD2_1
+#if NETSTANDARD2_1 || NET5_0
         public async ValueTask DisposeAsync()
         {
             await (_textWriter?.DisposeAsync() ?? default);
@@ -66,6 +67,7 @@ namespace App.Metrics.Formatters.Ascii
         public void Dispose()
         {
             _textWriter?.Dispose();
+            GC.SuppressFinalize(this);
         }
 
         private string PaddedFormat(string label, string value)
@@ -80,4 +82,5 @@ namespace App.Metrics.Formatters.Ascii
             return $"{pad}{label} {_separator} {value}";
         }
     }
+#pragma warning restore CA1063 // Implement IDisposable Correctly
 }

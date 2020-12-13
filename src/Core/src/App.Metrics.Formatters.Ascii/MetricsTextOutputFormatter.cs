@@ -1,4 +1,4 @@
-﻿// <copyright file="MetricsTextOutputFormatter.cs" company="App Metrics Contributors">
+// <copyright file="MetricsTextOutputFormatter.cs" company="App Metrics Contributors">
 // Copyright (c) App Metrics Contributors. All rights reserved.
 // </copyright>
 
@@ -7,7 +7,6 @@ using System.IO;
 using System.Threading;
 using System.Threading.Tasks;
 #if !NETSTANDARD1_6
-using App.Metrics.Internal;
 #endif
 using App.Metrics.Serialization;
 

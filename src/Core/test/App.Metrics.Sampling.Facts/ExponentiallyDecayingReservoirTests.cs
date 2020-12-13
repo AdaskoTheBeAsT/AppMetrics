@@ -1,4 +1,4 @@
-﻿// <copyright file="ExponentiallyDecayingReservoirTests.cs" company="App Metrics Contributors">
+// <copyright file="ExponentiallyDecayingReservoirTests.cs" company="App Metrics Contributors">
 // Copyright (c) App Metrics Contributors. All rights reserved.
 // </copyright>
 
@@ -12,7 +12,8 @@ using Xunit;
 
 namespace App.Metrics.Sampling.Facts
 {
-    public class ExponentiallyDecayingReservoirTests
+    public sealed class ExponentiallyDecayingReservoirTests
+        : IDisposable
     {
         private readonly IClock _clock;
         private readonly IReservoirRescaleScheduler _scheduler;
@@ -254,6 +255,11 @@ namespace App.Metrics.Sampling.Facts
             // so a minimum weight of 0.1 should have eliminated the first set.
             reservoir.GetSnapshot().Size.Should().Be(5);
             reservoir.GetSnapshot().Values.Should().OnlyContain(v => v == 1000);
+        }
+
+        public void Dispose()
+        {
+            _scheduler?.Dispose();
         }
     }
 }

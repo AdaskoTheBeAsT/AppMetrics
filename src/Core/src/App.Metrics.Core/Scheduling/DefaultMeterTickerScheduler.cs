@@ -12,6 +12,7 @@ using App.Metrics.Meter;
 
 namespace App.Metrics.Scheduling
 {
+#pragma warning disable CA1063 // Implement IDisposable Correctly
     public class DefaultMeterTickerScheduler : IMeterTickerScheduler
     {
         private static readonly ILog Logger = LogProvider.For<DefaultMeterTickerScheduler>();
@@ -116,4 +117,5 @@ namespace App.Metrics.Scheduling
 #endif
         }
     }
+#pragma warning restore CA1063 // Implement IDisposable Correctly
 }

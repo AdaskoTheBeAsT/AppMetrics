@@ -1,4 +1,4 @@
-﻿// <copyright file="AppMetricsTaskScheduler.cs" company="App Metrics Contributors">
+// <copyright file="AppMetricsTaskScheduler.cs" company="App Metrics Contributors">
 // Copyright (c) App Metrics Contributors. All rights reserved.
 // </copyright>
 
@@ -9,6 +9,7 @@ using App.Metrics.Logging;
 
 namespace App.Metrics.Scheduling
 {
+#pragma warning disable CA1063 // Implement IDisposable Correctly
     public class AppMetricsTaskScheduler : IDisposable
     {
         private static readonly ILog Logger = LogProvider.For<AppMetricsTaskScheduler>();
@@ -69,4 +70,5 @@ namespace App.Metrics.Scheduling
             }
         }
     }
+#pragma warning restore CA1063 // Implement IDisposable Correctly
 }

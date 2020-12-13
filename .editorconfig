@@ -1,0 +1,15 @@
+[*]
+indent_style = space
+charset = utf-8
+
+#csproj files
+[*.csproj]
+indent_size = 2
+
+#props files
+[*.props]
+indent_size = 2
+
+#targets files
+[*.targets]
+indent_size = 2

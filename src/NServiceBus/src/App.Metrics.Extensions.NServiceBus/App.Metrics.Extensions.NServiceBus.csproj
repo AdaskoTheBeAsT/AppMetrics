@@ -1,7 +1,7 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <Description>App.Metrics.Extensions.NServiceBus extension for capture NSB metrics.</Description>
-    <TargetFramework>netstandard2.0</TargetFramework>
+    <TargetFrameworks>netstandard2.0;net5.0</TargetFrameworks>
     <RootNamespace>App.Metrics.Extensions.NServiceBus</RootNamespace>
     <PackageTags>appmetrics;metrics;nservicebus</PackageTags>
   </PropertyGroup>

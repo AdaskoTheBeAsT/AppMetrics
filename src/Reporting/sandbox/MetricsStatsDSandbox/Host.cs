@@ -1,4 +1,4 @@
-﻿// <copyright file="Host.cs" company="App Metrics Contributors">
+// <copyright file="Host.cs" company="App Metrics Contributors">
 // Copyright (c) App Metrics Contributors. All rights reserved.
 // </copyright>
 
@@ -53,7 +53,7 @@ namespace MetricsStatsDSandbox
 
             Configuration = configurationBuilder.Build();
 
-            Log.Logger = new LoggerConfiguration().MinimumLevel.Verbose().WriteTo.LiterateConsole().CreateLogger();
+            Log.Logger = new LoggerConfiguration().MinimumLevel.Verbose().WriteTo.Console().CreateLogger();
 
             var metricsConfigSection = Configuration.GetSection(nameof(MetricsOptions));
 

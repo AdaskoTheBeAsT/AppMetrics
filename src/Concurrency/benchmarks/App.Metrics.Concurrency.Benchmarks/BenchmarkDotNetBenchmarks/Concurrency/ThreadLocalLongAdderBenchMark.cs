@@ -2,11 +2,12 @@
 // Copyright (c) App Metrics Contributors. All rights reserved.
 // </copyright>
 
+using System;
 using BenchmarkDotNet.Attributes;
 
 namespace App.Metrics.Concurrency.Benchmarks.BenchmarkDotNetBenchmarks.Concurrency
 {
-    public class ThreadLocalLongAdderBenchmark : DefaultBenchmarkBase
+    public sealed class ThreadLocalLongAdderBenchmark : DefaultBenchmarkBase, IDisposable
     {
         private ThreadLocalLongAdder _num;
 
@@ -33,6 +34,11 @@ namespace App.Metrics.Concurrency.Benchmarks.BenchmarkDotNetBenchmarks.Concurren
         public void Increment()
         {
             _num.Increment(1);
+        }
+
+        public void Dispose()
+        {
+            _num?.Dispose();
         }
     }
 }

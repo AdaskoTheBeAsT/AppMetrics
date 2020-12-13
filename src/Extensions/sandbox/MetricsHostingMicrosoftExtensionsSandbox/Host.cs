@@ -1,4 +1,4 @@
-﻿// <copyright file="Host.cs" company="App Metrics Contributors">
+// <copyright file="Host.cs" company="App Metrics Contributors">
 // Copyright (c) App Metrics Contributors. All rights reserved.
 // </copyright>
 
@@ -28,7 +28,7 @@ namespace MetricsHostingMicrosoftExtensionsSandbox
         {
             Log.Logger = new LoggerConfiguration()
                          .MinimumLevel.Verbose()
-                         .WriteTo.LiterateConsole(LogEventLevel.Information)
+                         .WriteTo.Console(LogEventLevel.Information)
                          .WriteTo.Seq("http://localhost:5341", LogEventLevel.Verbose)
                          .CreateLogger();
 

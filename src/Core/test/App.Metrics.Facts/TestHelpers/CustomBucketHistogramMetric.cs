@@ -7,6 +7,7 @@ using App.Metrics.BucketHistogram;
 
 namespace App.Metrics.Facts.TestHelpers
 {
+#pragma warning disable CA1063 // Implement IDisposable Correctly
     public class CustomBucketHistogramMetric : IBucketHistogramMetric
     {
         private bool _disposed;
@@ -38,4 +39,5 @@ namespace App.Metrics.Facts.TestHelpers
 
         public void Update(long value) { _values.Add(value); }
     }
+#pragma warning restore CA1063 // Implement IDisposable Correctly
 }

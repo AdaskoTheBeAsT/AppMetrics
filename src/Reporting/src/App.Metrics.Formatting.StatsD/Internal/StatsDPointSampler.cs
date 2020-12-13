@@ -1,10 +1,11 @@
-﻿// <copyright file="StatsDPointSampler.cs" company="App Metrics Contributors">
+// <copyright file="StatsDPointSampler.cs" company="App Metrics Contributors">
 // Copyright (c) App Metrics Contributors. All rights reserved.
 // </copyright>
 
 using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -65,7 +66,7 @@ namespace App.Metrics.Formatting.StatsD.Internal
             }
 
             tagsDictionary.TryGetValue(StatsDFormatterConstants.SampleRateTagName, out var tagSampleRateStr);
-            if (!double.TryParse(tagSampleRateStr, out var tagSampleRate))
+            if (!double.TryParse(tagSampleRateStr, NumberStyles.Float, CultureInfo.InvariantCulture, out var tagSampleRate))
             {
                 tagSampleRate = _options.DefaultSampleRate;
             }
@@ -168,7 +169,7 @@ namespace App.Metrics.Formatting.StatsD.Internal
 
 #if NETSTANDARD2_0
             using var writer = new StreamWriter(stream);
-#elif NETSTANDARD2_1
+#elif NETSTANDARD2_1 || NET5_0
             await using var writer = new StreamWriter(stream);
 #endif
             await writer.WriteAsync(string.Join("\n", result));

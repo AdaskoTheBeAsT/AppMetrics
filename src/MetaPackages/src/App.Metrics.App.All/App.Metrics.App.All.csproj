@@ -1,9 +1,9 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <Description>App Metrics App Metapackage - Contains all features for a dotnet core non-web application.</Description>
     <AssemblyTitle>App.Metrics.AspNetCore.All</AssemblyTitle>
-    <TargetFrameworks>netstandard2.0;netcoreapp3.1</TargetFrameworks>
+    <TargetFrameworks>netstandard2.0;netcoreapp3.1;net5.0</TargetFrameworks>
     <PackageTags>appmetrics;metrics</PackageTags>
   </PropertyGroup>
 

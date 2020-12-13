@@ -1,11 +1,10 @@
-﻿// <copyright file="HistogramValue.cs" company="App Metrics Contributors">
+// <copyright file="HistogramValue.cs" company="App Metrics Contributors">
 // Copyright (c) App Metrics Contributors. All rights reserved.
 // </copyright>
 
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using App.Metrics.Histogram;
 
 namespace App.Metrics.BucketHistogram
 {

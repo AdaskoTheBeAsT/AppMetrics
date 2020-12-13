@@ -12,6 +12,7 @@ using App.Metrics.ReservoirSampling.ExponentialDecay;
 
 namespace App.Metrics.FactsCommon.Fixtures
 {
+#pragma warning disable CA1063 // Implement IDisposable Correctly
     public class MetricsFixture : IDisposable
     {
         public MetricsFixture()
@@ -50,4 +51,5 @@ namespace App.Metrics.FactsCommon.Fixtures
 
         public void Dispose() { Metrics?.Manage.Reset(); }
     }
+#pragma warning restore CA1063 // Implement IDisposable Correctly
 }

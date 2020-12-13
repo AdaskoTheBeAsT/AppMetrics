@@ -1,4 +1,4 @@
-﻿// <copyright file="HistogramMetricTests.cs" company="App Metrics Contributors">
+// <copyright file="HistogramMetricTests.cs" company="App Metrics Contributors">
 // Copyright (c) App Metrics Contributors. All rights reserved.
 // </copyright>
 
@@ -13,7 +13,8 @@ using Xunit;
 
 namespace App.Metrics.Facts.Histogram
 {
-    public class HistogramMetricTests
+    public sealed class HistogramMetricTests
+        : IDisposable
     {
         private readonly DefaultHistogramMetric _histogram;
 
@@ -82,6 +83,11 @@ namespace App.Metrics.Facts.Histogram
             var histogram = new CustomHistogram();
             var value = histogram.GetValueOrDefault();
             value.Should().NotBeNull();
+        }
+
+        public void Dispose()
+        {
+            _histogram?.Dispose();
         }
     }
 }

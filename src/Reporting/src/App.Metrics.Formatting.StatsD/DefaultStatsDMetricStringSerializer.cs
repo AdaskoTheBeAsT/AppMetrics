@@ -1,8 +1,9 @@
-﻿// <copyright file="DefaultStatsDMetricStringSerializer.cs" company="App Metrics Contributors">
+// <copyright file="DefaultStatsDMetricStringSerializer.cs" company="App Metrics Contributors">
 // Copyright (c) App Metrics Contributors. All rights reserved.
 // </copyright>
 
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using App.Metrics.Formatting.StatsD.Internal;
@@ -24,7 +25,7 @@ namespace App.Metrics.Formatting.StatsD
             if (point.SampleRate.HasValue && point.SampleRate < 1.0)
             {
                 builder.Append("|@");
-                builder.Append(point.SampleRate.Value.ToString("0.###############"));
+                builder.Append(point.SampleRate.Value.ToString("0.###############", CultureInfo.InvariantCulture));
             }
             return builder.ToString();
         }

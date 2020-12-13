@@ -1,4 +1,4 @@
-﻿// <copyright file="Host.cs" company="App Metrics Contributors">
+// <copyright file="Host.cs" company="App Metrics Contributors">
 // Copyright (c) App Metrics Contributors. All rights reserved.
 // </copyright>
 
@@ -106,7 +106,7 @@ namespace MetricsPrometheusSandbox
 
             Log.Logger = new LoggerConfiguration()
                 .MinimumLevel.Verbose()
-                .WriteTo.LiterateConsole()
+                .WriteTo.Console()
                 .WriteTo.Seq("http://localhost:5341")
                 .CreateLogger();
 

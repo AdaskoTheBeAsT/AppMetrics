@@ -1,4 +1,4 @@
-﻿// <copyright file="CustomMetricsTests.cs" company="App Metrics Contributors">
+// <copyright file="CustomMetricsTests.cs" company="App Metrics Contributors">
 // Copyright (c) App Metrics Contributors. All rights reserved.
 // </copyright>
 
@@ -7,12 +7,12 @@ using System.Linq;
 using App.Metrics.BucketTimer;
 using App.Metrics.Facts.TestHelpers;
 using App.Metrics.FactsCommon.Fixtures;
-using App.Metrics.Timer;
 using FluentAssertions;
 using Xunit;
 
 namespace App.Metrics.Facts.BucketTimer
 {
+#pragma warning disable CA1063 // Implement IDisposable Correctly
     public class CustomMetricsTests : IDisposable
     {
         private readonly MetricsFixture _fixture;
@@ -44,4 +44,5 @@ namespace App.Metrics.Facts.BucketTimer
 
         public void Dispose() { _fixture?.Dispose(); }
     }
+#pragma warning restore CA1063 // Implement IDisposable Correctly
 }

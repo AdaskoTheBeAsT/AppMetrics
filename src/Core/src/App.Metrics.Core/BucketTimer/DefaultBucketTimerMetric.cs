@@ -1,14 +1,11 @@
-﻿// <copyright file="DefaultTimerMetric.cs" company="App Metrics Contributors">
+// <copyright file="DefaultTimerMetric.cs" company="App Metrics Contributors">
 // Copyright (c) App Metrics Contributors. All rights reserved.
 // </copyright>
 
 using System;
 using App.Metrics.BucketHistogram;
 using App.Metrics.Concurrency;
-using App.Metrics.Histogram;
 using App.Metrics.Meter;
-using App.Metrics.ReservoirSampling;
-using App.Metrics.Scheduling;
 using App.Metrics.Timer;
 
 namespace App.Metrics.BucketTimer

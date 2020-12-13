@@ -1,7 +1,7 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
     <PropertyGroup>
         <Description>Metric/Event Collectors for App Metrics e.g. System Usage, GC Events</Description>
-        <TargetFramework>netstandard2.0</TargetFramework>
+        <TargetFrameworks>netstandard2.0;net5.0</TargetFrameworks>
         <RootNamespace>App.Metrics.Extensions.Collectors</RootNamespace>
         <GenerateDocumentationFile>true</GenerateDocumentationFile>
         <PackageTags>appmetrics;metrics</PackageTags>
